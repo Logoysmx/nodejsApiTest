@@ -9,7 +9,7 @@ class ClothingStockRoutes {
     }
 
     config(): void {
-        this.router.get('/test', clothingStokController.test);
+        this.router.get('/test', clothingStokController.listClothingModel);
     }
 }
 
