@@ -9,7 +9,7 @@ class ClothingStockRoutes {
     }
 
     config(): void {
-        this.router.get('/test', clothingStokController.listClothingModel);
+        this.router.get('/test/:productType/:limit/:filterByOffer?', clothingStokController.listClothingModel);
     }
 }
 

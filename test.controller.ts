@@ -11,13 +11,15 @@ class ClothingStockController {
     async listClothingModel(req: Request, res: Response) {
         // const { productType, limit } = req.params;
         
-        const productType = 1;
+        const limit = parseInt(req.params.limit);
+        const productType = parseInt(req.params.productType);
         const offers = req.params.filterByOffer && req.params.filterByOffer ==='offers' ? true : false;
         const brandFilter = req.params.filterByBrand && req.params.filterByBrand ==='filter' ? true : false;
     
+    
         const result = await db.query(
         'CALL getProducts(?, ?)', 
-        [productType, 10], 
+        [productType, limit], 
         (error:any, results:any, fields:any) => {
             if(!error) {
                 let objResponse: IProduct[] = [];
